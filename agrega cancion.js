@@ -21,3 +21,18 @@ function nuevaCancion(event) {
         alert('error')
       })
   }
+  
+  function editarCancion(id) {
+    axios
+      .put(url + "/" + id, {
+        id,
+        titulo: cancion.value,
+        artista: artista.value,
+        tono: tono.value,
+      })
+      .then(() => {
+        getData();
+        document.getElementById("agregar").style.display = "block";
+        document.getElementById("editar").style.display = "none";
+      });
+  }
